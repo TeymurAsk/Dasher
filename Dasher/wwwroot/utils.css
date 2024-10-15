@@ -1,0 +1,50 @@
+﻿.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+
+
+/* xs */
+@media (min-width:475px) {
+    .container {
+        max-width: 475px;
+    }
+}
+
+/* sm */
+@media (min-width:640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+/* md */
+@media (min-width:768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+/* lg */
+@media (min-width:1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+/* XL */
+@media (min-width:1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+/* 2XL */
+@media (min-width:1536px) {
+    .container {
+        max-width: 1536px;
+    }
+}

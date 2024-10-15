@@ -1,0 +1,558 @@
+﻿.agreements__title {
+    font-size: var(--size-4xl);
+    background: var(--default-gradient);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/* Main container for the progress bar */
+.agreement__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--clr-dark);
+    border-radius: 30px;
+    overflow: hidden;
+    border: 2px solid #E7E7E8;
+}
+
+/* Individual step styling */
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    color: #E7E7E8;
+    position: relative;
+}
+
+/* Accepted step style */
+.accepted {
+    background-color: var(--clr-dark);
+    font-size: var(--size-xs);
+    border-radius: 2rem;
+}
+    .accepted.active {
+        background: var(--default-gradient);
+        color: var(--clr-dark);
+        font-size: var(--size-xs);
+    }
+    .accepted.deactive {
+        background-color: var(--clr-dark);
+        font-size: var(--size-xs);
+        color: var(--clr-light);
+    }
+
+/* In-progress step style with gradient */
+.in-progress {
+    color:var(--clr-dark);
+    font-size:var(--size-xs);
+    background: var(--default-gradient);
+    border-radius:2rem;
+}
+    .in-progress.active {
+        background: var(--default-gradient);
+        color: var(--clr-dark);
+        font-size: var(--size-xs);
+    }
+
+    .in-progress.deactive {
+        background: var(--clr-dark);
+        font-size: var(--size-xs);
+        color: var(--clr-light);
+    }
+
+/* Declined step style */
+.declined {
+    background-color: var(--clr-dark);
+    font-size: var(--size-xs);
+    border-radius: 2rem;
+}
+    .declined.active {
+        background: var(--default-gradient);
+        color: var(--clr-dark);
+        font-size: var(--size-xs);
+    }
+
+    .declined.deactive {
+        background-color: var(--clr-dark);
+        font-size: var(--size-xs);
+        color: var(--clr-light);
+    }
+
+.date{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    margin-top:3rem;
+}
+.date__date{
+    display:flex;
+    align-items:center;
+}
+.date__calendar{
+    width:var(--size-2xl);
+    height:var(--size-2xl);
+    margin-top:0.1rem;
+}
+.date__text{
+    margin-top:0.4rem;
+    font-size:var(--size-lg);
+}
+.agreements__line {
+    border: 1px solid var( --clr-light-black);
+    padding-top: 1.5rem;
+    margin-top: 0.2rem;
+}
+.workers {
+    display: flex;
+    align-items: center;
+    gap:0.4rem;
+    margin-top:0.2rem;
+}
+.workers__text {
+    display: flex;
+    align-items: center;
+    font-size: var(--size-lg);
+    margin-top:0.3rem;
+}
+.workers__img {
+    width: var(--size-2xl);
+    height: var(--size-2xl);
+    margin-top:0.1rem;
+}
+/* Card Section */
+.agreements__card {
+    width: fit-content;
+    border: 2px solid var(--clr-purple-light);
+    border-radius: 2rem;
+    padding: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+.agreements__card-top{
+    display:flex;
+    gap:1rem;
+}
+.agreements__card-top-title {
+    margin-top: 0.3rem;
+    font-size: var(--size-lg);
+    font-weight:500;
+}
+
+.agreements__card-top-subtitle {
+    font-size: var(--size-base);
+    color: #8B8B8B;
+}
+
+.agreements__card-top-review {
+    font-size: var(--size-s)
+}
+.agreements__card-btns{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:0.7rem;
+    margin-top:2rem;
+}
+.agreements__card-btns-open {
+    font-size: var(--size-lg);
+    color: var(--clr-light);
+    border:2px solid var(--clr-purple-light);
+    width: 15.375rem;
+    height: var(--size-4xl);
+    border-radius: 2rem;
+    transition: all .4s ease-in-out;
+}
+.agreements__card-btns-cancel {
+    font-size: var(--size-lg);
+    font-weight: 600;
+    color: var(--clr-dark);
+    background-image: linear-gradient(to right,#C7C2EC 0%, #DACBD2 51%, #D9B294 100%);
+    width: 15.375rem;
+    height:var(--size-4xl);
+    border-radius: 2rem;
+    background-size: 200% auto;
+    transition: all .4s ease-in-out;
+}
+.agreements__card-btns-cancel:hover {
+    background-position: right center;
+}
+.agreements__card-bottom{
+    display:flex;
+    gap:0.4rem;
+    justify-content:center;
+    align-items:center;
+    margin-top:1rem;
+}
+
+.agreements__card-bottom-text {
+    font-size: var(--size-s);
+    color: var(--clr-gray-light);
+    opacity:0.8;
+}
+.agreements__card-bottom-time{
+    font-size:var(--size-lg);
+    color:var(--clr-purple-light);
+}
+.agreements__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+
+
+/* xs */
+@media (min-width:475px) {
+    .agreements__title {
+        font-size: var(--size-5xl);
+        background: var(--default-gradient);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+/* sm */
+@media (min-width:640px) {
+    .agreements__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    /* Accepted step style */
+    .accepted {
+        font-size: var(--size-s);
+    }
+
+        .accepted.active {
+            font-size: var(--size-s);
+        }
+
+        .accepted.deactive {
+            font-size: var(--size-s);
+        }
+
+    /* In-progress step style with gradient */
+    .in-progress {
+        font-size: var(--size-s);
+    }
+
+        .in-progress.active {
+            font-size: var(--size-s);
+        }
+
+        .in-progress.deactive {
+            font-size: var(--size-s);
+        }
+
+    /* Declined step style */
+    .declined {
+        font-size: var(--size-s);
+    }
+
+        .declined.active {
+            font-size: var(--size-s);
+        }
+
+        .declined.deactive {
+            font-size: var(--size-s);
+        }
+
+}
+
+/* md */
+@media (min-width:768px) {
+
+}
+
+/* lg */
+@media (min-width:1024px) {
+    .agreements__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+    .accepted {
+        font-size: var(--size-base);
+    }
+
+        .accepted.active {
+            font-size: var(--size-base);
+        }
+
+        .accepted.deactive {
+            font-size: var(--size-base);
+        }
+
+    /* In-progress step style with gradient */
+    .in-progress {
+        font-size: var(--size-base);
+    }
+
+        .in-progress.active {
+            font-size: var(--size-base);
+        }
+
+        .in-progress.deactive {
+            font-size: var(--size-base);
+        }
+
+    /* Declined step style */
+    .declined {
+        font-size: var(--size-base);
+    }
+
+        .declined.active {
+            font-size: var(--size-base);
+        }
+
+        .declined.deactive {
+            font-size: var(--size-base);
+        }
+}
+
+/* XL */
+@media (min-width:1280px) {
+}
+
+/* 2XL */
+@media (min-width:1536px) {
+    .agreements__title {
+        font-size: var(--size-6xl);
+        background: var(--default-gradient);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    /* Main container for the progress bar */
+    .agreement__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+    }
+
+    .progress-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: var(--clr-dark);
+        border-radius: 30px;
+        overflow: hidden;
+        border: 2px solid #E7E7E8;
+    }
+
+    /* Individual step styling */
+    .step {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        color: #E7E7E8;
+        position: relative;
+    }
+
+    /* Accepted step style */
+    .accepted {
+        background-color: var(--clr-dark);
+        font-size: var(--size-xl);
+        border-radius: 2rem;
+    }
+
+        .accepted.active {
+            background: var(--default-gradient);
+            color: var(--clr-dark);
+            font-size: var(--size-xl);
+        }
+
+        .accepted.deactive {
+            background-color: var(--clr-dark);
+            font-size: var(--size-xl);
+            color: var(--clr-light);
+        }
+
+    /* In-progress step style with gradient */
+    .in-progress {
+        color: var(--clr-dark);
+        font-size: var(--size-xl);
+        background: var(--default-gradient);
+        border-radius: 2rem;
+    }
+
+        .in-progress.active {
+            background: var(--default-gradient);
+            color: var(--clr-dark);
+            font-size: var(--size-xl);
+        }
+
+        .in-progress.deactive {
+            background: var(--clr-dark);
+            font-size: var(--size-xl);
+            color: var(--clr-light);
+        }
+
+    /* Declined step style */
+    .declined {
+        background-color: var(--clr-dark);
+        font-size: var(--size-xl);
+        border-radius: 2rem;
+    }
+
+        .declined.active {
+            background: var(--default-gradient);
+            color: var(--clr-dark);
+            font-size: var(--size-xl);
+        }
+
+        .declined.deactive {
+            background-color: var(--clr-dark);
+            font-size: var(--size-xl);
+            color: var(--clr-light);
+        }
+
+    .date {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 7rem;
+    }
+
+    .date__date {
+        display: flex;
+        align-items: center;
+    }
+
+    .date__calendar {
+        width: var(--size-2xl);
+        height: var(--size-2xl);
+        margin-top: 0.1rem;
+    }
+
+    .date__text {
+        margin-top: 0.4rem;
+        font-size: var(--size-lg);
+    }
+
+    .agreements__line {
+        border: 1px solid var( --clr-light-black);
+        padding-top: 1.5rem;
+        margin-top: 0.2rem;
+    }
+
+    .workers {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-top: 0.2rem;
+    }
+
+    .workers__text {
+        display: flex;
+        align-items: center;
+        font-size: var(--size-lg);
+        margin-top: 0.3rem;
+    }
+
+    .workers__img {
+        width: var(--size-2xl);
+        height: var(--size-2xl);
+        margin-top: 0.1rem;
+    }
+    /* Card Section */
+    .agreements__card {
+        width: fit-content;
+        border: 2px solid var(--clr-purple-light);
+        border-radius: 2rem;
+        padding: 1rem;
+    }
+
+    .agreements__card-top {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .agreements__card-top-title {
+        margin-top: 0.3rem;
+        font-size: var(--size-lg);
+        font-weight: 500;
+    }
+
+    .agreements__card-top-subtitle {
+        font-size: var(--size-base);
+        color: #8B8B8B;
+    }
+
+    .agreements__card-top-review {
+        font-size: var(--size-s)
+    }
+
+    .agreements__card-btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        margin-top: 2rem;
+    }
+
+    .agreements__card-btns-open {
+        font-size: var(--size-lg);
+        color: var(--clr-light);
+        border: 2px solid var(--clr-purple-light);
+        width: 15.375rem;
+        height: var(--size-4xl);
+        border-radius: 2rem;
+        transition: all .4s ease-in-out;
+    }
+
+    .agreements__card-btns-cancel {
+        font-size: var(--size-lg);
+        font-weight: 600;
+        color: var(--clr-dark);
+        background-image: linear-gradient(to right,#C7C2EC 0%, #DACBD2 51%, #D9B294 100%);
+        width: 15.375rem;
+        height: var(--size-4xl);
+        border-radius: 2rem;
+        background-size: 200% auto;
+        transition: all .4s ease-in-out;
+    }
+
+        .agreements__card-btns-cancel:hover {
+            background-position: right center;
+        }
+
+    .agreements__card-bottom {
+        display: flex;
+        gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .agreements__card-bottom-text {
+        font-size: var(--size-s);
+        color: var(--clr-gray-light);
+        opacity: 0.8;
+    }
+
+    .agreements__card-bottom-time {
+        font-size: var(--size-lg);
+        color: var(--clr-purple-light);
+    }
+
+    .agreements__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+}

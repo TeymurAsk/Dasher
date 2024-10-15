@@ -1,0 +1,116 @@
+﻿@page "/details"
+<Sidebar></Sidebar>
+
+<div class="main-area">
+    <div class="container">
+        <h1 class="label-details">Contractor details</h1>
+        <div style="display:flex;gap:8rem;">
+            <div class="left-side-percent">
+                <p class="details__skills-label">Skills and expertise</p>
+                <button class="details__skills-sublabel">Cleaning</button>
+                <p class="details__bio-title">How can I help?</p>
+                <p class="details__bio-subtitle">I'm Kate, a dedicated waitress with 6 years of experience 
+                    in hospitality, I thrive on providing exceptional service with a warm smile. 
+                    Whether it's recommending the perfect dish or ensuring every guest feels welcomed
+                    and valued, I take pride in making dining experiences memorable. </p>
+                <div class="details__line"></div>
+                @* Order-panel *@
+                <div class="details__order-panel2">
+                    <div class="order-panel__top">
+                        <p class="order-panel__title">Waitress</p>
+                        <img class="order-panel__img" src="!image1.png" />
+                        <p class="order-panel__subtitle">Kate Jonson</p>
+                    </div>
+                    <p class="order-panel__summary-label">Summary</p>
+                    <div class="order-panel__time">
+                        <i class="fa-regular fa-calendar order-panel__time-img"></i>
+                        <div>
+                            <p class="order-panel__time-text">Start: Mar. 25 at 10 AM</p>
+                            <p class="order-panel__time-text">End: Mar. 26 at 10 AM</p>
+                        </div>
+                    </div>
+                    <div class="order-panel__time">
+                        <i class="fa-regular fa-clock order-panel__time-img2"></i>
+                        <p class="order-panel__time-text2">12h</p>
+                    </div>
+                    <p class="order-panel__summary-label">Task Details</p>
+                    <div style="display:flex;justify-content:center;align-items:center;">
+                        <textarea class="order-panel__textarea" maxlength="200"></textarea>
+                    </div>
+                    <p class="order-panel__summary-label">Price Details</p>
+                    <div style="display:flex;">
+                        <p class="text-left">Hourly fee:</p>
+                        <p class="text-right">45PLN/h</p>
+                    </div>
+                    <div style="display:flex;">
+                        <p class="text-left">Support fee:</p>
+                        <p class="text-right">30PLN</p>
+                    </div>
+                    <div class="btn-wrapper">
+                        <button class="order-panel-btn-request">Send the request</button>
+                    </div>
+                </div>
+                @* Order-panel *@
+                <p class="details__review">Reviews:&nbsp; <i class="fa-solid fa-star"></i>&nbsp;4.8&nbsp;(234)</p>
+                @for(int i = 0; i < 3; i++)
+                {
+                    <div style="margin-top:1rem;">
+                        <div class="details__review-stars">
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            <p class="details__review-date">2 days ago</p>
+                        </div>
+                        <p class="details__review-title">Der Elephant</p>
+                        <p class="details__review-subtitle">
+                            Attentive service and friendly
+                            demeanor consistently
+                            exceed our customers' expectations,
+                            contributing greatly to the positive atmosphere of our
+                            establishment.
+                        </p>
+                    </div>
+                }
+            </div>
+            <div class="details__order-panel">
+                <div class="order-panel__top">
+                    <p class="order-panel__title">Waitress</p>
+                    <img class="order-panel__img" src="!image1.png"/>
+                    <p class="order-panel__subtitle">Kate Jonson</p>
+                </div>
+                <p class="order-panel__summary-label">Summary</p>
+                <div class="order-panel__time">
+                    <i class="fa-regular fa-calendar order-panel__time-img"></i>
+                    <div>
+                        <p class="order-panel__time-text">Start: Mar. 25 at 10 AM</p>
+                        <p class="order-panel__time-text">End: Mar. 26 at 10 AM</p>
+                    </div>
+                </div>
+                <div class="order-panel__time">
+                    <i class="fa-regular fa-clock order-panel__time-img2"></i>
+                    <p class="order-panel__time-text2">12h</p>
+                </div>
+                <p class="order-panel__summary-label">Task Details</p>
+                <div style="display:flex;justify-content:center;align-items:center;">
+                    <textarea class="order-panel__textarea" maxlength="180"></textarea>
+                </div>
+                <p class="order-panel__summary-label">Price Details</p>
+                <div style="display:flex;">
+                    <p class="text-left">Hourly fee:</p>
+                    <p class="text-right">45PLN/h</p>
+                </div>
+                <div style="display:flex;">
+                    <p class="text-left">Support fee:</p>
+                    <p class="text-right">30PLN</p>
+                </div>
+                <div class="btn-wrapper">
+                    <button class="order-panel-btn-request">Send the request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+
+}

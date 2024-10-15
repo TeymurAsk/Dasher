@@ -1,0 +1,108 @@
+﻿input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+.label {
+    background: var(--default-gradient);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: var(--size-2xl);
+}
+.searchbar__input {
+    width:80%;
+    font-size: var(--size-lg);
+    color: var(--clr-light);
+    padding-left: 2rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+.searchbar {
+    margin-top: 2rem;
+    height: var(--size-6xl);
+    width:95%;
+    display: flex;
+    background-color: var(--clr-dark);
+    border: 2px solid var(--clr-light);
+    border-radius: 2rem;
+    align-items: center;
+}
+.searchbar__btn {
+    width: 5.1rem;
+    height: var(--size-6xl);
+    background: var(--default-gradient);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border-radius: 1.8rem;
+    margin-left: auto;
+    margin-right: -2px;
+}
+.searchbar__icon {
+    width: var(--size-3xl);
+    height: var(--size-3xl);
+    color: var(--clr-dark);
+    opacity: 1;
+}
+/* xs */
+@media (min-width:475px) {
+    .label {
+        font-size: var(--size-3xl);
+    }
+}
+
+/* sm */
+@media (min-width:640px) {
+    .label {
+        font-size: var(--size-4xl);
+    }
+    .searchbar__input {
+        width: 85%;
+    }
+
+    .searchbar {
+        width: 90%;
+    }
+}
+
+/* md */
+@media (min-width:768px) {
+}
+
+/* lg */
+@media (min-width:1024px) {
+    .label {
+        font-size: var(--size-5xl);
+    }
+    .searchbar__input {
+        width: 90%;
+    }
+
+    .searchbar {
+        width: 80%;
+    }
+}
+
+/* XL */
+@media (min-width:1280px) {
+    .searchbar__input {
+        width: 90%;
+    }
+
+    .searchbar {
+        width: 70%;
+    }
+}
+
+/* 2XL */
+@media (min-width:1536px) {
+    .label {
+        font-size: var(--size-6xl);
+    }
+}
