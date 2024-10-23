@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
-namespace Dasher.Data
+namespace DasherAPI.Data
 {
     public class Employer
     {
         [Key]
-        [ForeignKey("User")] 
-        public int UserId { get; set; } 
+        [ForeignKey("User")]
+        public int UserId { get; set; }
         public User User { get; set; }
 
         [Column(TypeName = "text")]

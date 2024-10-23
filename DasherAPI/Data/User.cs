@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Dasher.Data
+namespace DasherAPI.Data
 {
     public class User
     {

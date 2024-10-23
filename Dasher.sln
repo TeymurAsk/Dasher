@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dasher", "Dasher\Dasher.csproj", "{16ED12A5-3350-42DC-9C3B-07A8A49629BB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7E6109BB-C257-421C-8FDC-821C1C8EA298} = {7E6109BB-C257-421C-8FDC-821C1C8EA298}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DasherAPI", "..\DasherAPI\DasherAPI\DasherAPI.csproj", "{7E6109BB-C257-421C-8FDC-821C1C8EA298}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{16ED12A5-3350-42DC-9C3B-07A8A49629BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16ED12A5-3350-42DC-9C3B-07A8A49629BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16ED12A5-3350-42DC-9C3B-07A8A49629BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6109BB-C257-421C-8FDC-821C1C8EA298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6109BB-C257-421C-8FDC-821C1C8EA298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6109BB-C257-421C-8FDC-821C1C8EA298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6109BB-C257-421C-8FDC-821C1C8EA298}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

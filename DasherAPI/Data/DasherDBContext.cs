@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-namespace Dasher.Data
+namespace DasherAPI.Data
 {
     public class DasherDbContext : DbContext
     {
-        public DasherDbContext(DbContextOptions<DasherDbContext> options) : base(options) 
+        public DasherDbContext(DbContextOptions<DasherDbContext> options) : base(options)
         {
             
         }

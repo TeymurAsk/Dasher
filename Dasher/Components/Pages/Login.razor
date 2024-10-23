@@ -1,0 +1,35 @@
+﻿@page "/login"
+@using System.Security.Cryptography
+@using System.Security.Claims
+@using DasherAPI.Interfaces
+@using Microsoft.AspNetCore.Authentication
+@inject IJSRuntime JS
+@inject NavigationManager navman
+@inject UserController usercontroller
+@inject IPasswordHasher passwordhasher
+@inject AuthController authcontroller
+<PageTitle>Login</PageTitle>
+<div class="login">
+    <div class="login-border">
+        <p class="login__title">Login</p>
+        <p class="login__subtitle">Email</p>
+        <div class="login__input-wrapper">
+            <input class="login__input" type="text" placeholder="email" @bind-value=Email/>
+        </div>
+        <p class="login__subtitle">Password</p>
+        <div class="login__input-wrapper">
+            <input class="login__input" type="password" placeholder="password" @bind-value=Password />
+        </div>
+        <button style="margin-top:1rem" class="order-panel-btn-request">Login</button>
+    </div>
+</div>
+@code {
+    private string Email { get; set; }
+    private string Password { get; set; }
+
+    protected override void OnInitialized()
+    {
+        authcontroller.Login("teymurasgar@gmail.com", "9nSN8n59#");
+        navman.NavigateTo("/");
+    }
+}

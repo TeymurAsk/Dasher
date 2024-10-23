@@ -1,5 +1,9 @@
 ﻿@page "/agreements"
 @inject IJSRuntime JS
+@inject UserController usercontroller
+@inject EmployeeController employeecontroller
+@inject EmployerController employercontroller
+<PageTitle>Agreements</PageTitle>
 <Sidebar></Sidebar>
 <div class="main-area">
     <div class="container">
@@ -28,78 +32,27 @@
             </div>
         </div>
         <div class="agreements__cards">
-            <div class="agreements__card">
-                <div class="agreements__card-top">
-                    <img src="!image1.png" />
-                    <div>
-                        <p class="agreements__card-top-title">Kate Jonson</p>
-                        <p class="agreements__card-top-subtitle">Waitress</p>
-                        <p class="agreements__card-top-review"><i class="fa-solid fa-star"></i> 4.8 (378)</p>
+            @for(int i = 0; i < 4; i++)
+            {
+                <div class="agreements__card">
+                    <div class="agreements__card-top">
+                        <img src="!image1.png" />
+                        <div>
+                            <p class="agreements__card-top-title">Kate Jonson</p>
+                            <p class="agreements__card-top-subtitle">Waitress</p>
+                            <p class="agreements__card-top-review"><i class="fa-solid fa-star"></i> 4.8 (378)</p>
+                        </div>
+                    </div>
+                    <div class="agreements__card-btns">
+                        <button class="agreements__card-btns-open">Open chat</button>
+                        <button class="agreements__card-btns-cancel">Cancel request</button>
+                    </div>
+                    <div class="agreements__card-bottom">
+                        <p class="agreements__card-bottom-text">Time for accept:</p>
+                        <p class="agreements__card-bottom-time">5:04</p>
                     </div>
                 </div>
-                <div class="agreements__card-btns">
-                    <button class="agreements__card-btns-open">Open chat</button>
-                    <button class="agreements__card-btns-cancel">Cancel request</button>
-                </div>
-                <div class="agreements__card-bottom">
-                    <p class="agreements__card-bottom-text">Time for accept:</p>
-                    <p class="agreements__card-bottom-time">5:04</p>
-                </div>
-            </div>
-            <div class="agreements__card">
-                <div class="agreements__card-top">
-                    <img src="!image1.png" />
-                    <div>
-                        <p class="agreements__card-top-title">Kate Jonson</p>
-                        <p class="agreements__card-top-subtitle">Waitress</p>
-                        <p class="agreements__card-top-review"><i class="fa-solid fa-star"></i> 4.8 (378)</p>
-                    </div>
-                </div>
-                <div class="agreements__card-btns">
-                    <button class="agreements__card-btns-open">Open chat</button>
-                    <button class="agreements__card-btns-cancel">Cancel request</button>
-                </div>
-                <div class="agreements__card-bottom">
-                    <p class="agreements__card-bottom-text">Time for accept:</p>
-                    <p class="agreements__card-bottom-time">5:04</p>
-                </div>
-            </div>
-            <div class="agreements__card">
-                <div class="agreements__card-top">
-                    <img src="!image1.png" />
-                    <div>
-                        <p class="agreements__card-top-title">Kate Jonson</p>
-                        <p class="agreements__card-top-subtitle">Waitress</p>
-                        <p class="agreements__card-top-review"><i class="fa-solid fa-star"></i> 4.8 (378)</p>
-                    </div>
-                </div>
-                <div class="agreements__card-btns">
-                    <button class="agreements__card-btns-open">Open chat</button>
-                    <button class="agreements__card-btns-cancel">Cancel request</button>
-                </div>
-                <div class="agreements__card-bottom">
-                    <p class="agreements__card-bottom-text">Time for accept:</p>
-                    <p class="agreements__card-bottom-time">5:04</p>
-                </div>
-            </div>
-            <div class="agreements__card">
-                <div class="agreements__card-top">
-                    <img src="!image1.png" />
-                    <div>
-                        <p class="agreements__card-top-title">Kate Jonson</p>
-                        <p class="agreements__card-top-subtitle">Waitress</p>
-                        <p class="agreements__card-top-review"><i class="fa-solid fa-star"></i> 4.8 (378)</p>
-                    </div>
-                </div>
-                <div class="agreements__card-btns">
-                    <button class="agreements__card-btns-open">Open chat</button>
-                    <button class="agreements__card-btns-cancel">Cancel request</button>
-                </div>
-                <div class="agreements__card-bottom">
-                    <p class="agreements__card-bottom-text">Time for accept:</p>
-                    <p class="agreements__card-bottom-time">5:04</p>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>
