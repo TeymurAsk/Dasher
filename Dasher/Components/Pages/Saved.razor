@@ -1,39 +1,27 @@
-﻿@page "/agreements"
+﻿@page "/saved"
 @using System.Globalization
-@inject IJSRuntime JS
-@inject UserController usercontroller
-@inject EmployeeController employeecontroller
-@inject EmployerController employercontroller
-<PageTitle>Agreements</PageTitle>
+<PageTitle>Favorites</PageTitle>
 <Sidebar></Sidebar>
 <div class="main-area">
     <div class="container">
-        <h1 class="agreements__title">Agreements</h1>
-        <div class="agreement__container">
-            <div class="progress-bar">
-                <button id="progress1" class="step accepted">Accepted (2)</button>
-                <button id="progress2" class="step in-progress">Progress (4)</button>
-                <button id="progress3" class="step declined">Declined (0)</button>
-            </div>
-        </div>
-
+        <h1 class="agreements__title">Favorites</h1>
         <div class="date">
             <p class="date__date">
                 <svg class="date__calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
                     <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z" clip-rule="evenodd" />
-                </svg> <div class="date__text">&nbsp;&nbsp;@DateTime.Now.ToString("MMM d, yyyy", new CultureInfo("en-US"))</div>
+                </svg><div class="date__text">&nbsp;&nbsp;@DateTime.Now.ToString("MMM d, yyyy", new CultureInfo("en-US"))</div>
             </p>
             <div class="agreements__line"></div>
             <div class="workers">
                 <svg class="workers__img" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                </svg> 
+                </svg>
                 <div class="workers__text">4 workers</div>
             </div>
         </div>
         <div class="agreements__cards">
-            @for(int i = 0; i < 4; i++)
+            @for (int i = 0; i < 4; i++)
             {
                 <div class="agreements__card">
                     <div class="agreements__card-top">
@@ -45,8 +33,8 @@
                         </div>
                     </div>
                     <div class="agreements__card-btns">
-                        <button class="agreements__card-btns-open">Open chat</button>
-                        <button class="agreements__card-btns-cancel">Cancel request</button>
+                        <button class="agreements__card-btns-open">Remove</button>
+                        <button class="agreements__card-btns-cancel">Details</button>
                     </div>
                     <div class="agreements__card-bottom">
                         <p class="agreements__card-bottom-text">Time for accept:</p>
@@ -57,13 +45,6 @@
         </div>
     </div>
 </div>
-
 @code {
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JS.InvokeVoidAsync("changeProgressbar");
-        }
-    }
+
 }
