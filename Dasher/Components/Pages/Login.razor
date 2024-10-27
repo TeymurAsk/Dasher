@@ -14,22 +14,21 @@
         <p class="login__title">Login</p>
         <p class="login__subtitle">Email</p>
         <div class="login__input-wrapper">
-            <input class="login__input" type="text" placeholder="email" @bind-value=Email/>
+            <input class="login__input" type="text" placeholder="email" @bind-value="Email"/>
         </div>
         <p class="login__subtitle">Password</p>
         <div class="login__input-wrapper">
-            <input class="login__input" type="password" placeholder="password" @bind-value=Password />
+            <input class="login__input" type="password" placeholder="password" @bind-value="Password"/>
         </div>
-        <button style="margin-top:1rem" class="order-panel-btn-request">Login</button>
+        <button type="submit" style="margin-top:1rem" class="order-panel-btn-request" @onclick="(()=>{LoginUser();})">Login</button>
     </div>
 </div>
 @code {
     private string Email { get; set; }
     private string Password { get; set; }
-
-    protected override void OnInitialized()
+    public void LoginUser()
     {
-        authcontroller.Login("teymurasgar@gmail.com", "9nSN8n59#");
+        authcontroller.Login(Email, Password);
         navman.NavigateTo("/");
     }
 }

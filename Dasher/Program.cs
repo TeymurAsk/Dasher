@@ -13,6 +13,9 @@ using DasherAPI.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAntiforgery();
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddScoped<EmployeeController>();
