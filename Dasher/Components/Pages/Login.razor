@@ -2,9 +2,11 @@
 @using System.Security.Cryptography
 @using System.Security.Claims
 @using DasherAPI.Interfaces
+@using DasherAPI.Services
 @using Microsoft.AspNetCore.Authentication
 @inject IJSRuntime JS
 @inject NavigationManager navman
+@inject UserService _userservice
 @inject UserController usercontroller
 @inject IPasswordHasher passwordhasher
 @inject AuthController authcontroller
@@ -28,7 +30,8 @@
     private string Password { get; set; }
     public void LoginUser()
     {
-        authcontroller.Login(Email, Password);
+        var token = _userservice.Login(Email, Password);
+        JS.InvokeVoidAsync("localStorage.setItem", "authToken", token);
         navman.NavigateTo("/");
     }
 }

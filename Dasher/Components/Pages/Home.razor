@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Authorization
 @inject IJSRuntime JS
 @inject NavigationManager navman
+@inject CustomAuthStateProvider customauthstateprovider
 @inject EmployeeController employeecontroller
 @inject EmployerController employercontroller
 @inject UserController usercontroller
@@ -82,7 +83,7 @@
     private List<string> professions = new List<string> { "Delivery", "Cleaning", "Waitress", "Waiter", "Plumber", "Hostess", "Manager" };
     private string searchquery = "";
     private List<string> search_words = new List<string>();
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         employees = employeecontroller.Get();
         filteredEmployees = new List<Employee>(employees);
@@ -129,6 +130,23 @@
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        var authState = await customauthstateprovider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // If the user is not an Employer, redirect to a custom unauthorized page
+        if (user.IsInRole("Employee"))
+        {
+            navman.NavigateTo("/saved"); // Custom unauthorized route
+        }
+        else if (user.IsInRole("Employee"))
+        {
+
+        }
+        else
+        {
+            navman.NavigateTo("/login");
+        }
+
         if (firstRender)
         {
             await JS.InvokeVoidAsync("toggleChange");

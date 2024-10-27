@@ -9,13 +9,17 @@ using DasherAPI.Data;
 using DasherAPI.Services;
 using DasherAPI.Endpoints;
 using DasherAPI.Interfaces;
+using Dasher.Auth;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.Extensions.Options;
+using DasherAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddAntiforgery();
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddScoped<EmployeeController>();
@@ -23,7 +27,7 @@ builder.Services.AddScoped<EmployerController>();
 builder.Services.AddScoped<UserController>();
 builder.Services.AddScoped<AuthController>();
 builder.Services.AddScoped<UserService>();
-
+builder.Services.AddScoped<CustomAuthStateProvider>();
 builder.Services.AddScoped<UserEndpoints>();
 
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
@@ -42,7 +46,9 @@ builder.Services.AddDbContext<DasherDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DbConnection"));
 });
-
+builder.Services.AddUserAuthentication(
+    builder.Services.BuildServiceProvider().GetRequiredService<IOptions<JwtOptions>>()
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
