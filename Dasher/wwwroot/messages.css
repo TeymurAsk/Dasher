@@ -1,0 +1,102 @@
+﻿.messages__input-wrapper {
+    height: var(--size-4xl);
+    width:100%;
+    display: flex;
+    background-color: var(--clr-dark);
+    border: 2px solid var(--clr-light);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.messages__input {
+    font-size: var(--size-lg);
+    width: 100%;
+    color: var(--clr-light);
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+.messages__user-box{
+    margin-top:1.5rem;
+    display:flex;
+    border: 2px solid var(--clr-light);
+    border-radius: 1.5rem;
+    padding:1rem;
+}
+.user-box__title{
+    font-size:var(--size-lg);
+}
+.user-box__time{
+    margin-left:auto;
+    font-size:var(--size-lg);
+}
+.user-box__img{
+    width:70%;
+    height:auto;
+}
+.user-box__subtitle{
+    font-size:var(--size-base);
+    margin-top:0.5rem;
+}
+.text-container {
+    position:relative;
+    max-width: 50px;
+    overflow: hidden;
+}
+.text-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 30%; /* Adjust width to control gradient size */
+    background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+.vertical-line{
+    border: 1px solid var(--clr-light);
+    margin-left:2rem;
+    padding-top:10vh;
+}
+.horizontal-line{
+    margin-top:1rem;
+    width:100%;
+    border: 1px solid var(--clr-light);
+    padding-left:10rem;
+}
+.chat-box {
+    display: flex;
+    margin-left: 2rem;
+    height: 93vh;
+    width: 65%;
+    border: 2px solid var(--clr-purple-light);
+    border-radius: 2rem;
+}
+.chat-box__title{
+    font-size:var(--size-2xl);
+    padding-top:1rem;
+    padding-left:2rem;
+}
+.message {
+    padding:1rem;
+    border-radius: 1rem;
+    max-width: 70%;
+}
+
+.user-message {
+    background-color: var(--clr-purple-light);
+    color:black;
+    text-align: left;
+}
+
+.other-message {
+    background-color: black;
+    border:1px solid var(--clr-puple-light);
+    color:white;
+    text-align: right;
+}
