@@ -15,6 +15,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Options;
 using DasherAPI.Extensions;
+using Microsoft.AspNetCore.ResponseCompression;
+using Dasher.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +31,11 @@ builder.Services.AddScoped<AuthController>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<CustomAuthStateProvider>();
 builder.Services.AddScoped<UserEndpoints>();
+
+builder.Services.AddResponseCompression(options =>
+{
+    options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "application/octet-stream" });
+});
 
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
@@ -67,7 +74,7 @@ app.UseAuthorization();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
-
+app.MapHub<ChatHub>("/chathub");
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

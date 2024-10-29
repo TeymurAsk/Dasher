@@ -1,4 +1,5 @@
 ﻿@page "/employer/messages"
+@using Microsoft.AspNetCore.SignalR.Client
 @inject IJSRuntime JS
 <PageTitle>Chat</PageTitle>
 <Sidebar></Sidebar>
@@ -31,7 +32,8 @@
                     <p class="chat-box__title">Kate Johnson</p>
                     <div class="horizontal-line"></div>
                     <div class="chat-box__area" id="chatArea">
-                        
+                        <div></div>
+                        <div class="input-field__wrapper"></div>
                     </div>
                 </div>
                 <div></div>
@@ -40,6 +42,12 @@
     </div>
 </div>
 @code {
+    private HubConnection hubConnection;
+    private List<UserMessage> userMessages = new List<UserMessage>();
+    private string messageinput;
+
+    public bool isConnected => hubConnection.State == HubConnectionState.Connected;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
