@@ -7,6 +7,11 @@
         }
     });
 }
+function scrollToBottom() {
+    const chatContainer = document.querySelector('.chat-box__area');
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
 
 // Run the function on page load
 document.addEventListener("DOMContentLoaded", function () {

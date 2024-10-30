@@ -1,6 +1,8 @@
 ﻿@page "/employer/messages"
 @using Microsoft.AspNetCore.SignalR.Client
 @inject IJSRuntime JS
+@inject NavigationManager navman
+@implements IAsyncDisposable
 <PageTitle>Chat</PageTitle>
 <Sidebar></Sidebar>
 <div class="main-area">
@@ -28,12 +30,22 @@
             </div>
             <div class="vertical-line"></div>
             <div class="chat-box">
-                <div>
+                <div style="width:70%;">
                     <p class="chat-box__title">Kate Johnson</p>
                     <div class="horizontal-line"></div>
                     <div class="chat-box__area" id="chatArea">
-                        <div></div>
-                        <div class="input-field__wrapper"></div>
+                        @for(int i = 0; i < 5; i++)
+                        {
+                            <div class="message-tab__other">
+                                <p class="message-tab-text">messagsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssse</p>
+                            </div>
+                            <div class="message-tab__user">
+                                <p class="message-tab-text">messagsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssse</p>
+                            </div>
+                        }
+                    </div>
+                    <div class="textarea-input">
+                        <textarea class="message__textarea" maxlength="400" @bind=messageinput></textarea>
                     </div>
                 </div>
                 <div></div>
@@ -47,13 +59,43 @@
     private string messageinput;
 
     public bool isConnected => hubConnection.State == HubConnectionState.Connected;
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+        .WithUrl(navman.ToAbsoluteUri("/chathub"))
+        .Build();
+        hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+        {
+            userMessages.Add(new UserMessage { MessageId = 1, ReceiveId = 1, SentId = 2, Message = message, DateSent = DateTime.UtcNow });
+            StateHasChanged();
+        });
+        await hubConnection.StartAsync();
+    }
+    private async Task Send()
+    {
+        if (!string.IsNullOrEmpty(messageinput))
+        {
+            await hubConnection.SendAsync("SendMessage", "tima", messageinput);
+            messageinput = string.Empty;
+        }
+    }
 
+    public async ValueTask DisposeAsync()
+    {
+        if (hubConnection is not null)
+        {
+            await hubConnection.DisposeAsync();
+        }
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await JS.InvokeVoidAsync("truncateText", ".user-box__subtitle", 30);
+            await JS.InvokeVoidAsync("scrollToBottom");
         }
     }
+
+
 
 }
